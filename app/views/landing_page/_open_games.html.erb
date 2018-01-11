@@ -1,0 +1,13 @@
+&nbsp;
+&nbsp;
+&nbsp;
+<h3>Open Games</h3>
+&nbsp;
+&nbsp;
+
+<% @game.each do |game| %>
+<div>
+
+<%= link_to game.game_name, game_path(game) %>
+<% end %>
+</div>

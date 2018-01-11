@@ -1,9 +1,9 @@
 class GamesController < ApplicationController
+    before_action :authenticate_user!
 
   def new
     @game = Game.new
   end
-
 
   def create
     @game = Game.create_game
@@ -20,3 +20,9 @@ class GamesController < ApplicationController
     params.require(:game).permit(:game_name, :white_player_id, :black_player_id)
   end
 end
+
+def game_params
+    params.require(:game).permit(:game_name, :white_player_id, :black_player_id)
+end
+
+
