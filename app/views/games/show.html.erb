@@ -10,9 +10,12 @@
     <tr>
       <% (1..8).each do |j| %>
         <td class="squares" data-y-pos="<%= i %>" data-x-pos="<%= j %>">
-          <% piece = @game.pieces.find_by(x_position: j, y_position: i) %>
+          <% piece = @game.pieces.select{ |piece| piece.x_position == j && 
+                      piece.y_position == i }.first %>
           <% if piece.present? %>
-            <div class="pieces" game_id="<%= @game.id %>" piece_id="<%= piece.id %>" piece_color="<%= piece.color %>"><%= piece.type %></div>
+            <div class="pieces" game_id="<%= @game.id %>" 
+                 piece_id="<%= piece.id %>" piece_color="<%= piece.color %>">
+                 <%= piece.type %></div>
           <% end %>
 
         </td>
@@ -33,7 +36,7 @@ $( function() {
   $( ".pieces" ).draggable({
     start: function(){
       $("#draggable").draggable({ revert: 'invalid' });
-      // $(this).data("origPosition",$(this).position());
+      $(this).data("origPosition",$(this).position());
     }
   });
   
@@ -77,7 +80,8 @@ $( function() {
       })
       request.fail(function(data){
         console.log("FAIL");
-        ui.draggable.animate(ui.draggable.data().origPosition,"slow");
+        // ui.draggable.animate(ui.draggable.data().origPosition,"slow");
+        ui.draggable.animate({top: 0, left: 0},"slow");
         
       })
     }
