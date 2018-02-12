@@ -1,16 +1,20 @@
 require 'test_helper'
 
 describe Queen do
-<<<<<<< HEAD
-  let (:queen) {Queen.create(x_position: 3, y_position: 3, color: "white")}
-  let (:queen2) {Queen.create(x_position: 2, y_position: 8, color: "black")}
-=======
   let (:game) { Game.create_game }
   let (:queen) { Queen.create(x_position: 3, y_position: 3, color: 'white', 
                 game_id: game.id) }
   let (:queen2) { Queen.create(x_position: 6, y_position: 4, color: 'black', 
                 game_id: game.id) }
->>>>>>> 66d5a4c1d8d788d33c5e3e7e0ff768534fa89e25
+require 'test_helper'
+
+describe Queen do
+  let (:game) { Game.create_game }
+  let (:queen) { Queen.create(x_position: 3, y_position: 3, color: 'white', 
+                game_id: game.id) }
+  let (:queen2) { Queen.create(x_position: 6, y_position: 4, color: 'black', 
+                game_id: game.id) }
+
 
   it 'must load both queen pieces when a game is created' do
     assert_equal 2, Queen.where(game_id: game.id).length
@@ -25,11 +29,7 @@ describe Queen do
   end
   
   it 'must allow horizontal movements' do
-<<<<<<< HEAD
-    assert_equal true, queen2.queen_valid_move?(3, 8)
-=======
     assert_equal true, queen2.queen_valid_move?(3, 4)
->>>>>>> 66d5a4c1d8d788d33c5e3e7e0ff768534fa89e25
   end
   
   it 'must not allow horizontal movements' do
@@ -52,4 +52,13 @@ describe Queen do
     assert_equal true, queen.queen_valid_move?(5, 5)
   end
   
+  it 'must allow queen_is_valid? to return true' do
+    assert_equal true, queen.queen_valid_move?(5, 5)
+  end
+  
+  it 'must not allow queen_is_valid? to return true when move is obstructed' do
+    assert_equal true, queen.queen_valid_move?(2, 2)
+  end
+
 end
+
