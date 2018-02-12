@@ -9,5 +9,10 @@
 <div>
 
 <%= link_to game.game_name, game_path(game) %>
+<% if user_signed_in? %>
+<%= link_to 'Join Game', game_path(game) %>
+<% else %>
+<% link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
 <% end %>
 </div>
+<% end %>
