@@ -1,4 +1,10 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+
+a.nav-link {
+  float: right;
+  color: purple;
+}
 
 * {
   margin: 0;
@@ -59,3 +65,20 @@ ul{
   background: #9f9f9f;
 }
 
+.text-center {
+  color: green;
+  font-family: 'deftone_stylusregular';
+}
+
+.sign-in-up {
+  float: right;
+  padding: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+nav {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+}
