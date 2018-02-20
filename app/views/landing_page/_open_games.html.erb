@@ -1,18 +1,13 @@
-&nbsp;
-&nbsp;
-&nbsp;
-<h3>Open Games</h3>
-&nbsp;
-&nbsp;
-
 <% @game.each do |game| %>
-<div>
-
-<%= link_to game.game_name, game_path(game) %>
-<% if user_signed_in? %>
-<%= link_to 'Join Game', game_path(game) %>
-<% else %>
-<% link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
-<% end %>
-</div>
+    <% if user_signed_in? %>
+        <div class="list-item col-10 offset-1">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <h6>Join a Game</h6>
+            &nbsp;
+            &nbsp;
+            <%= link_to game.game_name, game_path(game), id: "sizing" %>
+        </div>
+    <% end %>
 <% end %>
