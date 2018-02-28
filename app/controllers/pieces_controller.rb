@@ -16,7 +16,6 @@ skip_before_action :verify_authenticity_token
 		@game = @piece.game
 	end
 
-
 	private
 
 	def piece_params

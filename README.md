@@ -11,10 +11,10 @@ from other team members work.
 Stories to be completed:
 
 []Support Joining a game (Started by dorothyeves)
-- Add a link to the page that lists the open seat games to join the game. 
+- Add a link to the page that lists the open seat games to join the game. -- done
 - Have the action trigger the games#update method and change the current game’s black_player_id to the currently logged in user id.
 
-[]List available games on the homepage (Started by dorothyeves)
+[X]List available games on the homepage (Started by dorothyeves)
 - Any game that is missing a player should be listed out for the user to let other players know they can join the game.
 
 []Valid move for pawn (Started by ansonmela)
